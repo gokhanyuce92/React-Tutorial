@@ -19,6 +19,15 @@ Bu projede aşağıdaki React Hook'ları ele alınmıştır:
 - **JavaScript (ES6)**: Modern JavaScript özellikleri.
 - **Node.js ve npm**: Proje bağımlılıkları ve geliştirme ortamı.
 
+### Chat API Application
+
+- **Form Üzerinden Veri Gönderimi:**
+  Kullanıcı, bir form aracılığıyla mesajını API'ye gönderebilir.
+- **Axios ile API Çağrısı:**
+  API çağrıları için `axios` kütüphanesi kullanılmıştır. Asenkron işlemler `async/await` ile yönetilmiştir.
+- **Markdown İşleme:**
+  API'den dönen yanıt, `react-markdown` ve `remark-gfm` kullanılarak Markdown formatında işlenir ve HTML olarak render edilir.
+
 ## Kurulum
 
 Projeyi çalıştırmak için aşağıdaki adımları izleyin:
