@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import FormattedMoney from './FormattedMoney';
+import { useState } from "react";
+import FormattedMoney from "./FormattedMoney";
 // import './css/ExpenseEntryItemList.css';
 
 function ExpenseEntryItemList(props) {

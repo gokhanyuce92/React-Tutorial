@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef, memo } from 'react';
+import Button from '@mui/material/Button';
 
 function PreviousValue() {
   const [count, setCount] = useState(0);
@@ -13,7 +14,7 @@ function PreviousValue() {
     <div>
       <p>Current count: {count}</p>
       <p>Previous count: {prevCountRef.current}</p>
-      <button onClick={() => setCount(count + 1)}>Increment</button>
+      <Button variant='contained' onClick={() => setCount(count + 1)}>Increment</Button>
     </div>
   );
 }

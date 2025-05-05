@@ -1,13 +1,15 @@
-import { useMemo, useState } from 'react';
+import { useMemo, useState, useEffect } from 'react';
 import './App.css';
 import ExpenseEntryItem from './components/ExpenseEntryItem';
-import ExpenseEntryItemList from './components/ExpenseEntryItemList';
+import ExpenseEntryItemList from './components/mui/ExpenseEntryItemList';
 import FormattedMoney from './components/FormattedMoney';
 import HookUseReducerMultipleActions from './components/HookUseReducerMultipleActions';
 import PreviousValue, { squareNum } from './components/PreviousValue';
 
 function App() {
   const [selectedItems, setSelectedItems] = useState([]);
+  const [selectedIds, setSelectedIds] = useState([]);
+
   const item = {
     id: 1,
     name: 'Grape Juice',
@@ -88,16 +90,26 @@ function App() {
     },
   ];
 
-  const handleExpenseEntryItemClick = (item, isChecked) => {
-    // console.log('Item clicked:', item);
-    if (isChecked) {
-      setSelectedItems((prevSelectedItems) => [...prevSelectedItems, item]);
-    } else {
-      setSelectedItems((prevSelectedItems) =>
-        prevSelectedItems.filter((selectedItem) => selectedItem.id !== item.id)
-      );
-    }
+  // const handleExpenseEntryItemClick = (item, isChecked) => {
+  //   // console.log('Item clicked:', item);
+  //   if (isChecked) {
+  //     setSelectedItems((prevSelectedItems) => [...prevSelectedItems, item]);
+  //   } else {
+  //     setSelectedItems((prevSelectedItems) =>
+  //       prevSelectedItems.filter((selectedItem) => selectedItem.id !== item.id)
+  //     );
+  //   }
+  // };
+
+  const handleSelectionChange = (ids) => {
+    // console.log("Selected IDs in parent:", ids);
+    setSelectedIds(ids);
   };
+
+  useEffect(() => {
+    const filteredItems = items.filter((item) => selectedIds.includes(item.id));
+    setSelectedItems(filteredItems);
+  }, [selectedIds]);
 
   const totalAmount = selectedItems.reduce((total, currentItem) => {
     return total + currentItem.amount;
@@ -113,12 +125,12 @@ function App() {
     setNumber(e.target.value);
   };
   return (
-    <div className="">
+    <div className="App">
       <ExpenseEntryItem item={item} />
       <br />
       <ExpenseEntryItemList
         items={items}
-        onItemClick={handleExpenseEntryItemClick}
+        onSelectionChange={handleSelectionChange}
       />
       {selectedItems.length > 0 && (
         <div>
