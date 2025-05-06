@@ -1,5 +1,5 @@
 import React from 'react';
-import ChatAPI from './components/ChatAPI';
+import ChatAPI from './components/mui/ChatAPI';
 
 function App() {
   return (

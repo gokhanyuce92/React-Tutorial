@@ -4,7 +4,6 @@ import { DataGrid, GridColDef } from '@mui/x-data-grid';
 import Paper from '@mui/material/Paper';
 
 const columns: GridColDef[] = [
-  { field: 'id', headerName: 'ID', width: 70 },
   { field: 'name', headerName: 'Name', width: 200 },
   { 
     field: 'amount', 

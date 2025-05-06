@@ -4,7 +4,8 @@ import ExpenseEntryItem from './components/ExpenseEntryItem';
 import ExpenseEntryItemList from './components/mui/ExpenseEntryItemList';
 import FormattedMoney from './components/FormattedMoney';
 import HookUseReducerMultipleActions from './components/HookUseReducerMultipleActions';
-import PreviousValue, { squareNum } from './components/PreviousValue';
+import PreviousValue from './components/PreviousValue';
+import SquaredNum from './components/mui/SquaredNum';
 
 function App() {
   const [selectedItems, setSelectedItems] = useState([]);
@@ -70,7 +71,7 @@ function App() {
     {
       id: 8,
       name: 'Meals',
-      amount: 300.25,
+      amount: 300.5,
       spendDate: '2020-10-30',
       category: 'Food',
     },
@@ -119,15 +120,10 @@ function App() {
     console.log('Form data received in parent:', formData);
   };
 
-  const [number, setNumber] = useState(0);
-  const squaredNum = useMemo(() => squareNum(number), [number]);
-  const onChangeHandler = (e) => {
-    setNumber(e.target.value);
-  };
   return (
     <div className="App">
-      <ExpenseEntryItem item={item} />
-      <br />
+      {/* <ExpenseEntryItem item={item} />
+      <br /> */}
       <ExpenseEntryItemList
         items={items}
         onSelectionChange={handleSelectionChange}
@@ -153,14 +149,7 @@ function App() {
       <br />
       <HookUseReducerMultipleActions onSubmit={handleReducerSubmit} />
       <br />
-      <input
-        type="number"
-        placeholder="Enter a number"
-        value={number}
-        onChange={onChangeHandler}
-      ></input>
-
-      <div>OUTPUT: {squaredNum}</div>
+      <SquaredNum />
     </div>
   );
 }

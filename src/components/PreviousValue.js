@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef, memo } from 'react';
 import Button from '@mui/material/Button';
+import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
 
 function PreviousValue() {
   const [count, setCount] = useState(0);
@@ -14,7 +15,13 @@ function PreviousValue() {
     <div>
       <p>Current count: {count}</p>
       <p>Previous count: {prevCountRef.current}</p>
-      <Button variant='contained' onClick={() => setCount(count + 1)}>Increment</Button>
+      <Button
+        variant="contained"
+        startIcon={<AddOutlinedIcon />}
+        onClick={() => setCount(count + 1)}
+      >
+        Increment
+      </Button>
     </div>
   );
 }

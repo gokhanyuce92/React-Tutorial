@@ -11,8 +11,8 @@
 # production
 /build
 
-# Prettier config
-prettier.config.js
+# # Prettier config
+# prettier.config.js
 
 # misc
 .DS_Store
