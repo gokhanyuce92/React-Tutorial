@@ -4,6 +4,7 @@ import { DataGrid, GridColDef } from '@mui/x-data-grid';
 import Paper from '@mui/material/Paper';
 import LoadingOverlay from '../LoadingOverlay';
 import UserPosts from './UserPosts';
+import UserTodos from './UserTodos';
 
 const columns = [
   { field: 'name', headerName: 'Name', width: 280 },
@@ -90,7 +91,8 @@ function Users() {
             onRowSelectionModelChange={handleSelectionChange}
             sx={{ border: 0 }}
           />
-          <UserPosts posts={selectedPosts} />
+          {/* <UserPosts posts={selectedPosts} /> */}
+          <UserTodos userIds={selectedIds} />
         </>
       )}
     </Paper>
