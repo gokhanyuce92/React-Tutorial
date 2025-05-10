@@ -7,15 +7,14 @@ import CardActionArea from '@mui/material/CardActionArea';
 import CardActions from '@mui/material/CardActions';
 import IconButton from '@mui/material/IconButton';
 import TaskAltIcon from '@mui/icons-material/TaskAlt';
-import axios from 'axios';
+import ApiClient from '../contexts/ApiClient';
 
 function UserTodos({ userIds }) {
   const [todos, setTodos] = useState([]);
 
   useEffect(() => {
     const fetchTodos = async () => {
-      await axios
-        .get('https://jsonplaceholder.typicode.com/todos')
+      await ApiClient.get('/todos')
         .then((response) => {
           const todos = response.data.filter((todo) =>
             userIds.includes(todo.userId)
